@@ -1,1 +1,6 @@
-spring.application.name=emqx-to-rabbit
+mqtt:
+  brokerUrl: tcp://206.189.183.181:1883
+  clientId: emqx-to-rabbit-client
+  username: pruebas_python
+  password: python2023
+  topic: pythonMqtt/SanPedroPlaza/VivaPark
