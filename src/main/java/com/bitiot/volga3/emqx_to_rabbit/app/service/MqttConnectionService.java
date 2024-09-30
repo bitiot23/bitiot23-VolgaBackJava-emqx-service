@@ -39,10 +39,10 @@ public class MqttConnectionService {
 
             //Opciones de conexión
             MqttConnectOptions options = new MqttConnectOptions();
-            options.setAutomaticReconnect(true);
-            options.setCleanSession(false);
-            options.setConnectionTimeout(10);
-            options.setKeepAliveInterval(30);
+            options.setAutomaticReconnect(true); // Habilita la reconexión automática
+            options.setCleanSession(false); // Mantiene la sesión activa entre reconexiones
+            options.setConnectionTimeout(10); // Tiempo de espera para la conexión
+            options.setKeepAliveInterval(30); // Intervalo de keep-alive
 
             //Credenciales de conexión
             options.setUserName(username);
