@@ -1,8 +1,6 @@
 package com.bitiot.volga3.emqx_to_rabbit.app.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.annotation.PostConstruct;
-import jakarta.websocket.MessageHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +34,7 @@ public class MqttService {
 
         // Procesar los datos JSON
         try {
-            CameraDataClass data = objectMapper.readValue(payload, CameraDataClass.class);
+            CameraData data = objectMapper.readValue(payload, CameraData.class);
             log.info("Datos procesados: {}", data.toString());
             //Aquí poner la lógica
         } catch (Exception e){

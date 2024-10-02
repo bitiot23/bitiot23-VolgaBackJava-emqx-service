@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true) // Ignora campos desconocidos
-public class CameraDataClass {
+public class CameraData {
 
     @JsonProperty("NameCamera")
     private String nameCamera;

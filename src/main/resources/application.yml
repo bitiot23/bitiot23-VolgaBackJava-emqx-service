@@ -3,4 +3,4 @@ mqtt:
   clientId: emqx-to-rabbit-client
   username: pruebas_python
   password: python2023
-  topic: pythonMqtt/SanPedroPlaza/VivaPark
+  topic: https://jyvt2s-5000.csb.app/api/test
