@@ -3,4 +3,9 @@ mqtt:
   clientId: emqx-to-rabbit-client
   username: pruebas_python
   password: python2023
-  topic: https://jyvt2s-5000.csb.app/api/test
+  topic: Bit-iot/sanpedro/Neiva/Neiva/Camara/Vivotek/Viva Park
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
