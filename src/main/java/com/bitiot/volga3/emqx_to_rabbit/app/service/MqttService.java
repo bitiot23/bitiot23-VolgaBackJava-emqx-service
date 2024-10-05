@@ -23,14 +23,14 @@ public class MqttService {
             mqttConnectionService.getMqttClient().subscribe(topic, this::processMessage);
             log.info("Suscrito al tópico: {}", topic);
         } catch (MqttException e){
-            log.error("Error al suscribirse al tópico: ", e);
+            log.error("Error al suscribirse al tópico: {}", e);
         }
     }
 
     //Método para procesar los mensajes recibidos del tópico
     private void processMessage(String topic, MqttMessage message){
         String payload = new String(message.getPayload()); // Convierte el payload del mensaje a String
-        log.info("Mensaje recibido del tópico: " + topic + ": " + payload);
+        log.info("Mensaje recibido del tópico: {}: {}", topic, payload);
 
         // Procesar los datos JSON
         try {

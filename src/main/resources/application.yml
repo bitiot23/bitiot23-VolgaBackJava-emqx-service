@@ -9,3 +9,16 @@ logging:
   level:
     org.springframework.web: DEBUG
     org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+
+spring:
+  rabbitmq:
+    host: localhost   # O la IP/hostname de tu servidor RabbitMQ
+    port: 5672
+    username: guest   # Cambiar por el usuario real
+    password: guest   # Cambiar por la contraseña real
+    template:
+      exchange: exchange-camera
+      routing-key: camara-routing-key
+      default-receive-queue: camara-queue
+      virtual-host: /
+      publisher-confirm-type: correlated # para confirmar la publicación de mensajes
