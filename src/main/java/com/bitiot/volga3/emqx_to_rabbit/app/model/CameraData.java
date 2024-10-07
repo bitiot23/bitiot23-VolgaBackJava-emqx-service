@@ -1,4 +1,4 @@
-package com.bitiot.volga3.emqx_to_rabbit.app.service;
+package com.bitiot.volga3.emqx_to_rabbit.app.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

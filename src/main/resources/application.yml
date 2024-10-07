@@ -7,8 +7,15 @@ mqtt:
 
 logging:
   level:
+    root: INFO
     org.springframework.web: DEBUG
     org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    org.springframework.amqp.rabbit: DEBUG
+    org.springframework.amqp.rabbit.connection: DEBUG
+    org.springframework.amqp.rabbit.core.RabbitTemplate: DEBUG
+    org.springframework.amqp.rabbit.listener: DEBUG
+    org.springframework.messaging: DEBUG
+
 
 spring:
   rabbitmq:
@@ -20,5 +27,11 @@ spring:
       exchange: exchange-camera
       routing-key: camara-routing-key
       default-receive-queue: camara-queue
+      mandatory: true
       virtual-host: /
       publisher-confirm-type: correlated # para confirmar la publicación de mensajes
+    listener:
+      simple:
+        concurrency: 1
+        max-concurrency: 5
+

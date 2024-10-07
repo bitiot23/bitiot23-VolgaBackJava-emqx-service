@@ -16,6 +16,7 @@ public class MqttCoordinator {// Coordina la lógica de suscripción para evitar
 
     @PostConstruct
     public void initialize(){
+        log.info("Ingresando al initialize");
         if (mqttConnectionService.connect()){ //Verifica si la conexión fue exitosa
             mqttService.subscribeToTopic(mqttConnectionService.getTopic());
 

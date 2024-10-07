@@ -1,5 +1,6 @@
 package com.bitiot.volga3.emqx_to_rabbit.app.service;
 
+import com.bitiot.volga3.emqx_to_rabbit.app.model.CameraData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.*;
@@ -13,7 +14,13 @@ public class MqttService {
     @Autowired
     private MqttConnectionService mqttConnectionService;
 
+    private RabbitMQSenderService rabbitMQSenderService;
+
     private final ObjectMapper objectMapper = new ObjectMapper();
+
+    public MqttService(RabbitMQSenderService rabbitMQSenderService){
+        this.rabbitMQSenderService = rabbitMQSenderService;
+    }
 
     //Método para suscribirse a un tópico
     public void subscribeToTopic(String topic) {
@@ -36,7 +43,13 @@ public class MqttService {
         try {
             CameraData data = objectMapper.readValue(payload, CameraData.class);
             log.info("Datos procesados: {}", data.toString());
-            //Aquí poner la lógica
+
+            //Enviar los datos a Rabbit
+//            rabbitMQSenderService.sendCameraData(data)
+//                    .doOnSuccess(v -> log.info("Datos enviados a Rabbit correctamente"))
+//                    .doOnError(e -> log.error("Error enviando los datos a Rabbit: ", e))
+//                    .subscribe();
+
         } catch (Exception e){
             log.error("Error al procesar el mensaje JSON: ", e);
         }

@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMQConfig {
 
     //Definimos una cola, un intercambio (exchange) y una clave de enrutamiento (routing key).
-    public static final String QUEUE_NAME = "cameraDataQueue";
-    public static final String EXCHANGE_NAME = "cameraDataExchange";
-    public static final String ROUTING_KEY = "cameraDataRoutingKey";
+    public static final String QUEUE_NAME = "camara-queue";
+    public static final String EXCHANGE_NAME = "exchange-camera";
+    public static final String ROUTING_KEY = "camara-routing-key";
 
     @Bean
     public Queue queue(){
