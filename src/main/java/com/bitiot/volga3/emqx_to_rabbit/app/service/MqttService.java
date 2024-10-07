@@ -45,10 +45,10 @@ public class MqttService {
             log.info("Datos procesados: {}", data.toString());
 
             //Enviar los datos a Rabbit
-//            rabbitMQSenderService.sendCameraData(data)
-//                    .doOnSuccess(v -> log.info("Datos enviados a Rabbit correctamente"))
-//                    .doOnError(e -> log.error("Error enviando los datos a Rabbit: ", e))
-//                    .subscribe();
+            rabbitMQSenderService.sendCameraData(data)
+                    .doOnSuccess(v -> log.info("Datos enviados a Rabbit correctamente"))
+                    .doOnError(e -> log.error("Error enviando los datos a Rabbit: ", e))
+                    .subscribe();
 
         } catch (Exception e){
             log.error("Error al procesar el mensaje JSON: ", e);
