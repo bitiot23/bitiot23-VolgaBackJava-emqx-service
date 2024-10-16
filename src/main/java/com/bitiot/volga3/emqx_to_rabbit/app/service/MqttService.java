@@ -16,7 +16,8 @@ public class MqttService {
 
     private RabbitMQSenderService rabbitMQSenderService;
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    @Autowired
+    private ObjectMapper objectMapper;
 
     public MqttService(RabbitMQSenderService rabbitMQSenderService){
         this.rabbitMQSenderService = rabbitMQSenderService;
