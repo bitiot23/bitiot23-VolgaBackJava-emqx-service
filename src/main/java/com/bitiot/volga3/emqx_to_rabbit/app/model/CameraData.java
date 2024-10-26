@@ -13,30 +13,30 @@ import java.time.ZonedDateTime;
 public class CameraData {
 
     @JsonProperty("IdCamera")
-    private Long idCamera;              //bigInt
+    private Long idCamera;              //int8
 
     @JsonProperty("ReportTime")
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ") // Formato ISO con zona horaria
-    private ZonedDateTime reportTime;          //varchar (100)
+    private ZonedDateTime reportTime;   //timestamptz
 
     @JsonProperty("NameCamera")
     private String nameCamera;          //varchar (200)
 
     @JsonProperty("idBranchOffice")
-    private String idBranchOffice;      //Integer
+    private String idBranchOffice;      //int4
 
     @JsonProperty("Entrada")
-    private String entrada;             //Integer
+    private String entrada;             //int4
 
     @JsonProperty("Salida")
-    private String salida;              //Integer
+    private String salida;              //int4
 
     @JsonProperty("StartTime")
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
-    private ZonedDateTime startTime;           //Ponerlo en zonedatetime
+    private ZonedDateTime startTime;    //timestamptz
 
     @JsonProperty("EndTime")
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
-    private ZonedDateTime endTime;             //Ponerlo en zonedatetime
+    private ZonedDateTime endTime;      //timestamptz
 
 }
