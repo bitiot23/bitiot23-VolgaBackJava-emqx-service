@@ -16,7 +16,7 @@ public class CameraData {
     private Long idCamera;              //int8
 
     @JsonProperty("ReportTime")
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ") // Formato ISO con zona horaria
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssXXX") // Formato ISO con zona horaria
     private ZonedDateTime reportTime;   //timestamptz
 
     @JsonProperty("NameCamera")
@@ -32,11 +32,11 @@ public class CameraData {
     private String salida;              //int4
 
     @JsonProperty("StartTime")
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssXXX")
     private ZonedDateTime startTime;    //timestamptz
 
     @JsonProperty("EndTime")
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssXXX")
     private ZonedDateTime endTime;      //timestamptz
 
 }
