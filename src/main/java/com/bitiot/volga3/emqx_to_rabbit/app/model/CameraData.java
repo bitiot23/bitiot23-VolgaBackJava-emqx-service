@@ -37,4 +37,7 @@ public class CameraData {
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssXXX")
     private ZonedDateTime endTime;      //timestamptz
 
+    @JsonProperty("IPCamera")
+    private String ipCamera;
+
 }
