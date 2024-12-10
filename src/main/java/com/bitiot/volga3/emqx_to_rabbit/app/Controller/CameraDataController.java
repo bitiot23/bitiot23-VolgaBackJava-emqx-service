@@ -22,18 +22,6 @@ public class CameraDataController {
         this.rabbitMQSenderService = rabbitMQSenderService;
     }
 
-//    @PostMapping
-//    public ResponseEntity<String> receiveCameraData(@RequestBody CameraData payload){
-//        //Poner lógica para procesar los datos recibidos
-//        //Validar el payload y publicarlo en RabbitMQ
-//        //Imprime los datos del payload
-//        log.info("Datos recibidos del payload: {}", payload);
-//
-//        log.info("Report Time: {}", payload.getReportTime());
-//
-//        return ResponseEntity.ok("Datos recibidos y procesados");
-//    }
-
     @PostMapping
     public Mono<String> receiveCameraData(@RequestBody CameraData payload){
         log.info("Se enviaron datos del payload a Rabbit");
