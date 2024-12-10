@@ -4,34 +4,32 @@ import com.bitiot.volga3.emqx_to_rabbit.app.model.CameraData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
 public class MqttService {
 
-    @Autowired
-    private MqttConnectionService mqttConnectionService;
+    private final MqttConnectionService mqttConnectionService;
 
-    private RabbitMQSenderService rabbitMQSenderService;
+    private final RabbitMQSenderService rabbitMQSenderService;
 
-    @Autowired
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
 
-    public MqttService(RabbitMQSenderService rabbitMQSenderService){
+    public MqttService(MqttConnectionService mqttConnectionService, RabbitMQSenderService rabbitMQSenderService, ObjectMapper objectMapper){
+        this.mqttConnectionService = mqttConnectionService;
         this.rabbitMQSenderService = rabbitMQSenderService;
+        this.objectMapper = objectMapper;
     }
 
     //Método para suscribirse a un tópico
     public void subscribeToTopic(String topic) {
         try {
             //Suscribirse al tópico especificado y procesar mensajes recibidos
-            //mqttClient.subscribe(topic, (receivedTopic,msg) -> processMessage(receivedTopic, msg));
             mqttConnectionService.getMqttClient().subscribe(topic, this::processMessage);
             log.info("Suscrito al tópico: {}", topic);
         } catch (MqttException e){
-            log.error("Error al suscribirse al tópico: {}", e);
+            log.error("Error al suscribirse al tópico: {}", e.getMessage());
         }
     }
 

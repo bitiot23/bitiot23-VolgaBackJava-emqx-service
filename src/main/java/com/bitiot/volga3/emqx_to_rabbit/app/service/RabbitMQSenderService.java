@@ -24,14 +24,14 @@ public class RabbitMQSenderService {
         System.out.println("Nombre del exchange: "+RabbitMQConfig.EXCHANGE_NAME);
         System.out.println("Nombre del routing: "+RabbitMQConfig.ROUTING_KEY);
 
-        System.out.println("El tipo de dato de ReportTime es: " + data.getReportTime().getClass().getSimpleName());
-        System.out.println("El tipo de dato de nameCamera es: " + data.getNameCamera().getClass().getSimpleName());
-        System.out.println("El tipo de dato de idBranchOffice es: " + data.getIdBranchOffice().getClass().getSimpleName());
-        System.out.println("El tipo de dato de idCamera es: " + data.getIdCamera().getClass().getSimpleName());
-        System.out.println("El tipo de dato de startTime es: " + data.getStartTime().getClass().getSimpleName());
-        System.out.println("El tipo de dato de endTime es: " + data.getEndTime().getClass().getSimpleName());
-        System.out.println("El tipo de dato de entrada es: " + data.getEntrada().getClass().getSimpleName());
-        System.out.println("El tipo de dato de salida es: " + data.getSalida().getClass().getSimpleName());
+//        System.out.println("El tipo de dato de ReportTime es: " + data.getReportTime().getClass().getSimpleName());
+//        System.out.println("El tipo de dato de nameCamera es: " + data.getNameCamera().getClass().getSimpleName());
+//        System.out.println("El tipo de dato de idBranchOffice es: " + data.getIdBranchOffice().getClass().getSimpleName());
+//        System.out.println("El tipo de dato de idCamera es: " + data.getIdCamera().getClass().getSimpleName());
+//        System.out.println("El tipo de dato de startTime es: " + data.getStartTime().getClass().getSimpleName());
+//        System.out.println("El tipo de dato de endTime es: " + data.getEndTime().getClass().getSimpleName());
+//        System.out.println("El tipo de dato de entrada es: " + data.getEntrada().getClass().getSimpleName());
+//        System.out.println("El tipo de dato de salida es: " + data.getSalida().getClass().getSimpleName());
 
         System.out.println("Datos enviados: "+data);
         return Mono.fromRunnable(() -> {
