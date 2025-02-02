@@ -9,20 +9,23 @@ cp ./src/main/resources/application-stage.yml ./src/main/resources/application.y
 echo "Compilando el proyecto con Maven..."
 mvn clean package -DskipTests
 
-
 # 3. Restaurar application.yml original
 echo "Restaurando archivo de propiedades original..."
 mv ./src/main/resources/application-tmp.yml ./src/main/resources/application.yml
 
-# 4. Construir la imagen Docker
+# 4. Eliminar archivo temporal
+echo "Eliminando archivo temporal..."
+rm -f ./src/main/resources/application-tmp.yml
+
+# 5. Construir la imagen Docker
 echo "Construyendo la imagen Docker..."
 docker build -t volga/emqx-to-rabbit .
 
-# 5. Etiquetar la imagen Docker para el entorno stage
+# 6. Etiquetar la imagen Docker para el entorno stage
 echo "Cambiando el TAG de la imagen a STAGE..."
 docker tag volga/emqx-to-rabbit volga/emqx-to-rabbit:STAGE
 
-# 6. Subir la imagen a Docker Hub
+# 7. Subir la imagen a Docker Hub
 echo "Haciendo PUSH de la imagen Docker a Docker Hub..."
 docker push volga/emqx-to-rabbit:STAGE
 
