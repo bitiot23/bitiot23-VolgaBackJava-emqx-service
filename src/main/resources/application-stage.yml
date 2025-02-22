@@ -1,12 +1,13 @@
 server:
   port: 8080
 spring:
-  profiles: stage
+  application:
+    name: emqx-to-rabbit
   rabbitmq:
-    host: localhost   # O la IP/hostname de tu servidor RabbitMQ
+    host: 181.205.53.2   # O la IP/hostname de tu servidor RabbitMQ
     port: 5672
-    username: guest   # Cambiar por el usuario real
-    password: guest   # Cambiar por la contraseña real
+    username: bitiotadmin   # Cambiar por el usuario real
+    password: 817107V01643bitiot*   # Cambiar por la contraseña real
     template:
       exchange: exchange-camera
       routing-key: camara-routing-key
